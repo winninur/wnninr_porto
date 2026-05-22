@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Winni Nur Rahmawati</title>
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        :root {
+
+            --primary-color: #FF8FAB; 
+      
+            --bg-color: #FFF5F7; 
+            --bg-secondary: #FFE5EC;
+            
+            --card-bg: #FFFFFF;
+      
+            --accent-color: #D4A373; 
+            
+            --text-color: #3E2723;
+            --text-muted: #5D4037;  
+
+            --transition: all 0.6s ease-out; 
+            
+            --font-heading: 'Times New Roman', serif;
+            --font-body: 'Times New Roman', serif;
+            --font-code: 'Times New Roman', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.7;
+            text-align: justify; /* Justify Default */
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 245, 247, 0.95); 
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-color);
+            letter-spacing: -1px;
+            text-align: left;
+        }
+        .logo span { color: var(--primary-color); }
+
+        nav ul { display: flex; gap: 30px; flex-wrap: wrap; }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--primary-color); }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after { width: 100%; }
+
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-color); }
+
+        .bg-shape {
+            position: fixed; 
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6; 
+            pointer-events: none;
+        }
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-color);
+            top: -50px;
+            left: -100px;
+            animation: floatOrbit 15s infinite alternate ease-in-out;
+        }
+        .shape-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-color);
+            bottom: -100px;
+            right: -100px;
+            animation: floatOrbitReverse 20s infinite alternate ease-in-out;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 10% 0;
+            position: relative;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 143, 171, 0.1) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-code);
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--text-color);
+            text-align: left;
+        }
+
+        .hero-title span { color: var(--primary-color); }
+
+        .typing-text {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            height: 30px;
+            font-family: var(--font-code);
+            text-align: left;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 143, 171, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #ff7496;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 143, 171, 0.5);
+        }
+
+        .btn-outline {
+            border-color: var(--text-color);
+            background: transparent;
+            color: var(--text-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .hero-visual img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            z-index: 10;
+            position: relative;
+            filter: drop-shadow(0 20px 40px rgba(62, 39, 35, 0.15));
+            animation: floatImage 6s ease-in-out infinite;
+        }
+
+        .gear {
+            position: absolute;
+            border-radius: 50%;
+            border-style: dashed;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .gear-large {
+            width: 195px;
+            height: 195px;
+            border-width: 15px;
+            border-color: #A9A9A9; 
+            top: -20px;
+            right: 0px;
+            animation: spin 12s linear infinite;
+        }
+
+        .gear-small {
+            width: 115px;
+            height: 115px;
+            border-width: 10px;
+            border-color: #D3D3D3; 
+            bottom: 0px;
+            left: 20px;
+            animation: spin-reverse 8s linear infinite;
+        }
+
+        .gear-medium {
+            width: 150px;
+            height: 150px;
+            border-width: 12px;
+            border-color: #808080; 
+            top: 50%;
+            left: 50px;
+            animation: spin 15s linear infinite reverse;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .reveal-left, .reveal-right, .reveal-up, .reveal-zoom {
+            opacity: 0;
+            transition: var(--transition);
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-left { transform: translateX(-80px); }
+        .reveal-right { transform: translateX(80px); }
+        .reveal-up { transform: translateY(60px); }
+        .reveal-zoom { transform: scale(0.8); opacity: 0; }
+
+        .reveal-left.show, .reveal-right.show, .reveal-up.show, .reveal-zoom.show {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        section { padding: 100px 10%; position: relative; }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 70px;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+     
+            transform: translateX(-50%);
+            animation: floatText 4s ease-in-out infinite;
+        }
+
+        @keyframes floatText {
+            0%, 100% {
+                transform: translate(-50%, 0) scale(1);
+                text-shadow: 0 5px 15px rgba(255, 143, 171, 0.1);
+            }
+            50% {
+                transform: translate(-50%, -12px) scale(1.02); 
+                text-shadow: 0 15px 25px rgba(255, 143, 171, 0.3); 
+            }
+        }
+
+        .section-title .line-decoration {
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 10px auto 0;
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative; 
+        }
+
+        .about-img img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            animation: aliveAvatar 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes aliveAvatar {
+            0%, 100% {
+                transform: translateY(0);
+                border-color: white;
+                box-shadow: 0 0 0 8px var(--bg-secondary);
+            }
+            50% {
+                transform: translateY(-15px);
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 15px var(--bg-secondary), 0 15px 30px rgba(255, 143, 171, 0.4);
+            }
+        }
+
+        .about-text { flex: 1; }
+        
+        .about-text h3 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem; 
+            margin-bottom: 25px;
+            color: var(--text-color);
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            font-size: 1.15rem; 
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-item h4 { color: var(--primary-color); margin-bottom: 8px; font-size: 1.1rem; letter-spacing: 0.5px; text-align: left; }
+        .info-item p { font-size: 1rem; color: var(--text-muted); text-align: left; }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 25px;
+        }
+
+        .tech-card {
+            background: var(--card-bg);
+            padding: 30px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 143, 171, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(255, 143, 171, 0.2);
+        }
+
+        .tech-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .tech-card:hover .tech-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .tech-name {
+            font-family: var(--font-code);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        .cert-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-img-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(212, 163, 115, 0.2);
+            cursor: pointer;
+        }
+
+        .cert-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .cert-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .cert-overlay {
+            display: none !important; 
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 143, 171, 0.2);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            background-color: #FDF6F0;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-card:hover .card-img img { transform: scale(1.1); }
+
+        .card-content { padding: 25px; }
+        .card-tag {
+            font-size: 0.75rem; color: var(--accent-color); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 10px; display: block; font-weight: 700; text-align: left;
+        }
+        .card-title { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-color); font-weight: 600; text-align: left; }
+        .card-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+
+        .contact-container { display: flex; justify-content: center; }
+
+        .contact-form {
+            background: var(--card-bg); padding: 45px; border-radius: 20px;
+            width: 100%; max-width: 600px; box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 143, 171, 0.2);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 10px; font-size: 0.9rem; color: var(--text-color); font-weight: 600; text-align: left;}
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 14px; background: #FFF5F7;
+            border: 1px solid rgba(212, 163, 115, 0.3); border-radius: 10px;
+            color: var(--text-color); font-family: var(--font-body); transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--primary-color); background: #FFFFFF;
+        }
+
+        footer {
+            text-align: center; padding: 40px; background: #FDF6F0;
+            color: var(--text-muted); border-top: 1px solid rgba(212, 163, 115, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        sup {
+            font-size: 0.6em; 
+            vertical-align: super; 
+            margin-left: 2px;
+            font-family: sans-serif; 
+        }
+
+        @keyframes floatOrbit {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 40px) scale(1.05); }
+        }
+        @keyframes floatOrbitReverse {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-30px, -20px) scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 20px; }
+            .menu-toggle { display: block; }
+            nav ul {
+                position: fixed; top: 70px; right: -100%; width: 250px; height: 100vh;
+                background: #FFFFFF; flex-direction: column; padding: 40px; transition: 0.4s;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+                z-index: 1001;
+            }
+            nav ul.active { right: 0; }
+            .hero { flex-direction: column-reverse; padding-top: 100px; text-align: center; }
+            .hero-content { margin-top: 40px; text-align: center; }
+            .hero-title, .hero-subtitle, .typing-text { text-align: center; }
+            .cta-buttons { justify-content: center; }
+            .about-container { flex-direction: column; text-align: center; }
+            .about-text h3, .info-item h4, .card-tag, .card-title { text-align: center; }
+            .info-item p { text-align: center; }
+            .gear { display: none; } 
+            .about-img img { width: 250px; height: 250px; }
+            .reveal-left, .reveal-right { transform: translateY(50px); }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <header>
+        <div class="logo">@wnninrr<span>.</span></div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#certificates">Sertifikat</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h3 class="hero-subtitle reveal-left">Halloow!!, saya</h3>
+            <h1 class="hero-title reveal-left">Winni Nur <br><span>Rahmawati</span></h1>
+            <div class="typing-text reveal-left">
+                Saya seorang <span id="typewriter"></span>
+            </div>
+            <p class="reveal-left" style="margin-bottom: 35px; color: var(--text-muted); font-size: 1.05rem;">
+                Mahasiswi S1 Teknik Informatika dengan antusiasme tinggi pada Data Analysis dan Natural Language Processing (NLP).
+            </p>
+            <div class="cta-buttons reveal-left">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#portfolio" class="btn btn-outline">Portofolio</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="gear gear-large"></div>
+            <div class="gear gear-medium"></div>
+            <div class="gear gear-small"></div>
+
+            <img class="reveal-right" src="https://z-cdn-media.chatglm.cn/files/47523f45-1300-4f2d-9871-5de5acd9124b.png?auth_key=1879424317-663ce522e3054749a7329872d6ce1452-0-ee143e31555562c10b811059f5bde3d2" alt="Tech Illustration Winni">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title reveal-up">About Me <span class="line-decoration"></span></h2>
+        <div class="about-container">
+            <div class="about-img reveal-left">
+                <img src="https://i.imgur.com/YIjzCLF.png" alt="Foto Winni">
+            </div>
+            <div class="about-text reveal-right">
+                <h3>Mahasiswi S1 Teknik Informatika</h3>
+                
+                <p>
+                    Saya Winni Nur Rahmawati, seorang yang berdedikasi dalam dunia analisis data dan teknologi bahasa alami. 
+                    Saya aktif dalam berbagai kegiatan akademik dan non-akademik, mengasah kemampuan hard skill maupun soft skill.
+                </p>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4>Pendidikan</h4>
+                        <p>Teknik Informatika</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Minat</h4>
+                        <p>Artificial Intelligence For Data Text</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Penghargaan</h4>
+                        <p>Beasiswa Nusantara</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Lainnya</h4>
+                        <p>Public Speaking, Copywriting, Nature Explorer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack">
+        <h2 class="section-title reveal-up">Tech Stack <span class="line-decoration"></span></h2>
+        <div class="tech-grid">
+ 
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-python tech-icon"></i>
+                <span class="tech-name">Python</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-html5 tech-icon"></i>
+                <span class="tech-name">HTML</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-css3-alt tech-icon"></i>
+                <span class="tech-name">CSS</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-js tech-icon"></i>
+                <span class="tech-name">JavaScript</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-bootstrap tech-icon"></i>
+                <span class="tech-name">Bootstrap</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-php tech-icon"></i>
+                <span class="tech-name">PHP</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-solid fa-database tech-icon"></i>
+                <span class="tech-name">MySQL</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-github tech-icon"></i>
+                <span class="tech-name">GitHub</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-solid fa-laptop-code tech-icon"></i>
+                <span class="tech-name">VS Code</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-figma tech-icon"></i>
+                <span class="tech-name">Figma</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-solid fa-chart-line tech-icon"></i>
+                <span class="tech-name">RapidMiner</span>
+            </div>
+
+            <div class="tech-card reveal-up">
+                <i class="fa-brands fa-google tech-icon"></i>
+                <span class="tech-name">Google Colab</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2 class="section-title reveal-up">Sertifikasi <span class="line-decoration"></span></h2>
+        <div class="cert-image-grid">
+
+            <div class="cert-img-wrapper reveal-zoom">
+                <img src="https://i.imgur.com/c3tI0iJ.png" alt="Sertifikat 1">
+                <div class="cert-overlay"><span>Lihat Detail</span></div>
+            </div>
+
+            <div class="cert-img-wrapper reveal-zoom">
+                <img src="https://i.imgur.com/AxBjATo.png" alt="Sertifikat 2">
+                <div class="cert-overlay"><span>Lihat Detail</span></div>
+            </div>
+
+            <div class="cert-img-wrapper reveal-zoom">
+                <img src="https://i.imgur.com/FkVFX1r.png" alt="Sertifikat 3">
+                <div class="cert-overlay"><span>Lihat Detail</span></div>
+            </div>
+
+            <div class="cert-img-wrapper reveal-zoom">
+                <img src="https://i.imgur.com/aaYR4L3.png" alt="Sertifikat 4">
+                <div class="cert-overlay"><span>Lihat Detail</span></div>
+            </div>
+
+            <div class="cert-img-wrapper reveal-zoom">
+                <img src="https://i.imgur.com/OkoZFZD.png" alt="Sertifikat 5">
+                <div class="cert-overlay"><span>Lihat Detail</span></div>
+            </div>
+
+            <div class="cert-img-wrapper reveal-zoom">
+                <img src="https://i.imgur.com/ROd5zli.png" alt="Sertifikat 6">
+                <div class="cert-overlay"><span>Lihat Detail</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title reveal-up">Kegiatan <span class="line-decoration"></span></h2>
+        <div class="portfolio-grid">
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/XavhQG3.png" alt="TV One Experience">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Pengalaman Kerja</span>
+                    <h3 class="card-title">Experience at TV One</h3>
+                    <p class="card-desc">Pengalaman profesional di stasiun televisi TV One bersama rekan FKBN.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/V8xvhAb.jpeg" alt="Master of Ceremonies">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Soft Skill</span>
+                    <h3 class="card-title">Master of Ceremony</h3>
+                    <p class="card-desc">Dokumentasi saya sebagai Master of Ceremonies Seminar AI Safety in the Wild.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/P1oaJLp.png" alt="AWBL Project">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Teknikal</span>
+                    <h3 class="card-title">AWBL Project TK Bhayangkari</h3>
+                    <p class="card-desc">Kegiatan aktivitas belajar interaktif anak menggunakan media edukasi.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/lyvIzez.png" alt="ODK">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">ODK</span>
+                    <h3 class="card-title">One Day Kebudiluhuran</h3>
+                    <p class="card-desc">Kegiatan kebersamaan dan pengembangan karakter bersama mahasiswa Budi Luhur.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/KsXIMDr.jpeg" alt="SOCIAL PROJECT">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">SOCIAL PROJECT</span>
+                    <h3 class="card-title">Berbagi Takjil</h3>
+                    <p class="card-desc">Kegiatan sosial berbagi takjil kepada masyarakat di bulan Ramadan.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/ts2JHSd.png" alt="Workshop">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Refreshing</span>
+                    <h3 class="card-title">Refreshing Timee</h3>
+                    <p class="card-desc">Solidarity Camp FKBN,sabi euy mampir curug kondang Bogor.</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/YisjpVI.png" alt="Hackathon">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">soft skill</span>
+                    <h3 class="card-title">MC Wisuda</h3>
+                    <p class="card-desc">Memandu dan mengelola jalannya acara wisuda.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-card reveal-zoom">
+                <div class="card-img">
+                    <img src="https://i.imgur.com/4ubNTf4.png" alt="Seminar">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Akademik</span>
+                    <h3 class="card-title">Project Analisis Sentimen</h3>
+                    <p class="card-desc">Mengolah dan menganalisis data teks untuk klasifikasi sentimen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title reveal-up">Contact Me <span class="line-decoration"></span></h2>
+        <div class="contact-container reveal-up">
+            <form class="contact-form" onsubmit="handleContact(event)">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="email@contoh.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea rows="5" placeholder="Tulis pesan untuk Winni..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 wnninrr<sup>TM</sup>. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Data Analyst & NLP Enthusiast</p>
+    </footer>
+
+    <div id="toast" style="visibility: hidden; min-width: 250px; margin-left: -125px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 1001; left: 50%; bottom: 30px; font-size: 17px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"></div>
+
+    <script>
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["Data Analyst", "NLP Enthusiast", "Mahasiswa Teknik Informatika"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+
+            const heroLeftItems = document.querySelectorAll('.hero-content .reveal-left');
+            const heroRightItems = document.querySelectorAll('.hero-visual .reveal-right');
+
+            heroLeftItems.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('show');
+                }, 300 + (index * 200)); 
+            });
+
+            heroRightItems.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('show');
+                }, 500 + (index * 200)); 
+            });
+        });
+        
+        function applyStaggeredAnimation(selector, delayStep) {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((el, index) => {
+                el.style.transitionDelay = `${index * delayStep}ms`;
+            });
+        }
+
+        applyStaggeredAnimation('.tech-card', 100);
+        applyStaggeredAnimation('.cert-img-wrapper', 150);
+        applyStaggeredAnimation('.portfolio-card', 100);
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up, .reveal-zoom');
+        revealElements.forEach((el) => observer.observe(el));
+
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message;
+            toast.style.visibility = "visible";
+            toast.style.opacity = "1";
+            toast.style.transition = "opacity 0.5s, bottom 0.5s";
+            
+            setTimeout(function(){ 
+                toast.style.visibility = "hidden"; 
+                toast.style.opacity = "0";
+            }, 3000);
+        }
+
+        function handleContact(event) {
+            event.preventDefault();
+            showToast("Terima kasih! Pesan Anda telah terkirim.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
