@@ -10,15 +10,13 @@
     <style>
 
         :root {
-
-            --primary-color: #FF8FAB; 
-      
+            --primary-color: #FF8FAB; /* Pink */
             --bg-color: #FFF5F7; 
             --bg-secondary: #FFE5EC;
             
             --card-bg: #FFFFFF;
       
-            --accent-color: #D4A373; 
+            --accent-color: #D4A373; /* Coklat */
             
             --text-color: #3E2723;
             --text-muted: #5D4037;  
@@ -42,12 +40,13 @@
             color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.7;
-            text-align: justify; /* Justify Default */
+            text-align: justify;
         }
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
+        /* --- Header & Nav --- */
         header {
             position: fixed;
             top: 0;
@@ -105,6 +104,7 @@
 
         .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-color); }
 
+        /* --- Background Shapes --- */
         .bg-shape {
             position: fixed; 
             border-radius: 50%;
@@ -130,6 +130,7 @@
             animation: floatOrbitReverse 20s infinite alternate ease-in-out;
         }
 
+        /* --- Hero Section --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -141,8 +142,8 @@
         }
 
         .hero-content {
-            flex: 1;
-            max-width: 600px;
+            flex: 1.2; /* Lebih lebar untuk menyeimbangkan */
+            max-width: 650px;
         }
 
         .hero-subtitle {
@@ -217,9 +218,9 @@
         }
 
         .hero-visual {
-            flex: 1;
+            flex: 0.8; /* Kolom lebih sempit (mendorong ke kiri) */
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Geser isi ke kiri */
             position: relative;
             align-items: center;
             min-height: 400px;
@@ -228,7 +229,7 @@
         .hero-visual img {
             max-width: 100%;
             height: auto;
-            max-height: 500px;
+            max-height: 400px; /* GAMBAR LEBIH KECIL (sebelumnya 500px) */
             z-index: 10;
             position: relative;
             filter: drop-shadow(0 20px 40px rgba(62, 39, 35, 0.15));
@@ -280,6 +281,7 @@
             50% { transform: translateY(-20px); }
         }
 
+        /* --- Animations & Sections --- */
         .reveal-left, .reveal-right, .reveal-up, .reveal-zoom {
             opacity: 0;
             transition: var(--transition);
@@ -307,7 +309,6 @@
             position: relative;
             display: inline-block;
             left: 50%;
-     
             transform: translateX(-50%);
             animation: floatText 4s ease-in-out infinite;
         }
@@ -333,6 +334,7 @@
             opacity: 0.7;
         }
 
+        /* --- About Section --- */
         .about-container {
             display: flex;
             align-items: center;
@@ -350,7 +352,7 @@
             width: 350px;
             height: 350px;
             border-radius: 50%;
-            object-fit: cover;
+            object-fit: cover; /* Menjaga bentuk asli (tidak gepeng) */
             border: 5px solid white;
             animation: aliveAvatar 3s ease-in-out infinite;
             cursor: pointer;
@@ -376,8 +378,29 @@
             font-size: 2.4rem; 
             margin-bottom: 25px;
             color: var(--text-color);
-            text-align: left;
+            text-align: left; /* Default */
             line-height: 1.3;
+        }
+
+        /* --- Class Khusus "Helloo!! I'm" --- */
+        .greeting-gradient {
+            text-align: center !important; /* Posisi Tengah */
+            font-size: 1.2rem !important; /* Ukuran Kecil */
+            font-weight: 600;
+            margin-bottom: 10px !important; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            
+            /* Gradasi Pink ke Coklat */
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent !important;
+        }
+
+        /* --- Class Baru: Nama Tengah --- */
+        .name-centered {
+            text-align: center !important;
         }
 
         .about-text p {
@@ -397,6 +420,7 @@
         .info-item h4 { color: var(--primary-color); margin-bottom: 8px; font-size: 1.1rem; letter-spacing: 0.5px; text-align: left; }
         .info-item p { font-size: 1rem; color: var(--text-muted); text-align: left; }
         
+        /* --- Tech Stack --- */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -440,6 +464,8 @@
             font-size: 1rem;
             color: var(--text-color);
         }
+
+        /* --- Certificates --- */
         .cert-image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -471,6 +497,7 @@
             display: none !important; 
         }
 
+        /* --- Portfolio --- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -515,6 +542,7 @@
         .card-title { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-color); font-weight: 600; text-align: left; }
         .card-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
 
+        /* --- Contact --- */
         .contact-container { display: flex; justify-content: center; }
 
         .contact-form {
@@ -534,6 +562,7 @@
             outline: none; border-color: var(--primary-color); background: #FFFFFF;
         }
 
+        /* --- Footer --- */
         footer {
             text-align: center; padding: 40px; background: #FDF6F0;
             color: var(--text-muted); border-top: 1px solid rgba(212, 163, 115, 0.2);
@@ -568,7 +597,16 @@
             }
             nav ul.active { right: 0; }
             .hero { flex-direction: column-reverse; padding-top: 100px; text-align: center; }
-            .hero-content { margin-top: 40px; text-align: center; }
+            .hero-content { 
+                margin-top: 40px; 
+                text-align: center; 
+                flex: 1; /* Reset flex on mobile */
+                max-width: 100%;
+            }
+            .hero-visual { 
+                flex: 1; /* Reset flex on mobile */
+                justify-content: center; /* Center image on mobile */
+            }
             .hero-title, .hero-subtitle, .typing-text { text-align: center; }
             .cta-buttons { justify-content: center; }
             .about-container { flex-direction: column; text-align: center; }
@@ -602,27 +640,29 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h3 class="hero-subtitle reveal-left">Halloow!!, saya</h3>
-            <h1 class="hero-title reveal-left">Winni Nur <br><span>Rahmawati</span></h1>
-            <div class="typing-text reveal-left">
-                Saya seorang <span id="typewriter"></span>
-            </div>
-            <p class="reveal-left" style="margin-bottom: 35px; color: var(--text-muted); font-size: 1.05rem;">
-                Mahasiswi S1 Teknik Informatika dengan antusiasme tinggi pada Data Analysis dan Natural Language Processing (NLP).
-            </p>
-            <div class="cta-buttons reveal-left">
-                <a href="#contact" class="btn btn-primary">Contact Me</a>
-                <a href="#portfolio" class="btn btn-outline">Portofolio</a>
-            </div>
-        </div>
-
-        <div class="hero-visual">
+        <!-- GAMBAR DIPINDAH KE KIRI, LEBIH KECIL & GESER KE KIRI -->
+        <div class="hero-visual reveal-left">
             <div class="gear gear-large"></div>
             <div class="gear gear-medium"></div>
             <div class="gear gear-small"></div>
 
-            <img class="reveal-right" src="https://z-cdn-media.chatglm.cn/files/47523f45-1300-4f2d-9871-5de5acd9124b.png?auth_key=1879424317-663ce522e3054749a7329872d6ce1452-0-ee143e31555562c10b811059f5bde3d2" alt="Tech Illustration Winni">
+            <img src="https://z-cdn-media.chatglm.cn/files/47523f45-1300-4f2d-9871-5de5acd9124b.png?auth_key=1879424317-663ce522e3054749a7329872d6ce1452-0-ee143e31555562c10b811059f5bde3d2" alt="Tech Illustration Winni">
+        </div>
+
+        <!-- TEKS DATA ANALYST DIPINDAH KE KANAN, LEBIH LEBAR -->
+        <div class="hero-content reveal-right">
+            <h3 class="hero-subtitle">Welcomeee!!, </h3>
+            <h1 class="hero-title">Data <br><span>Analyst</span></h1>
+            <div class="typing-text">
+                Saya seorang <span id="typewriter"></span>
+            </div>
+            <p style="margin-bottom: 35px; color: var(--text-muted); font-size: 1.05rem;">
+                Mahasiswi S1 Teknik Informatika dengan antusiasme tinggi pada Data Analysis dan Natural Language Processing (NLP).
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#portfolio" class="btn btn-outline">Portofolio</a>
+            </div>
         </div>
     </section>
 
@@ -633,10 +673,14 @@
                 <img src="https://i.imgur.com/YIjzCLF.png" alt="Foto Winni">
             </div>
             <div class="about-text reveal-right">
-                <h3>Mahasiswi S1 Teknik Informatika</h3>
+                <!-- CLASS greeting-gradient (Tengah, Kecil, Gradasi) -->
+                <h3 class="greeting-gradient">Helloo!! I'm</h3>
+                
+                <!-- CLASS name-centered (NAMA JUGA TENGAH) -->
+                <h3 class="name-centered">Winni Nur Rahmawati</h3>
                 
                 <p>
-                    Saya Winni Nur Rahmawati, seorang yang berdedikasi dalam dunia analisis data dan teknologi bahasa alami. 
+                    Saya adalah mahasiswa S1 Teknik Informatika Budi Luhur University yang berfokus pada dunia analisis data dan teknologi bahasa alami. 
                     Saya aktif dalam berbagai kegiatan akademik dan non-akademik, mengasah kemampuan hard skill maupun soft skill.
                 </p>
                 <div class="info-grid">
@@ -645,7 +689,7 @@
                         <p>Teknik Informatika</p>
                     </div>
                     <div class="info-item">
-                        <h4>Minat</h4>
+                        <h4>Peminatan</h4>
                         <p>Artificial Intelligence For Data Text</p>
                     </div>
                     <div class="info-item">
@@ -920,8 +964,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             type();
 
-            const heroLeftItems = document.querySelectorAll('.hero-content .reveal-left');
-            const heroRightItems = document.querySelectorAll('.hero-visual .reveal-right');
+            // UPDATE SELECTOR ANIMATION HERO
+            // Karena layout ditukar (Gambar Kiri, Teks Kanan)
+            const heroLeftItems = document.querySelectorAll('.hero .reveal-left'); // Gambar
+            const heroRightItems = document.querySelectorAll('.hero .reveal-right'); // Teks
 
             heroLeftItems.forEach((el, index) => {
                 setTimeout(() => {
