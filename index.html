@@ -10,13 +10,13 @@
     <style>
 
         :root {
-            --primary-color: #FF8FAB; /* Pink */
+            --primary-color: #FF8FAB; 
             --bg-color: #FFF5F7; 
             --bg-secondary: #FFE5EC;
             
             --card-bg: #FFFFFF;
       
-            --accent-color: #D4A373; /* Coklat */
+            --accent-color: #D4A373; 
             
             --text-color: #3E2723;
             --text-muted: #5D4037;  
@@ -46,7 +46,6 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* --- Header & Nav --- */
         header {
             position: fixed;
             top: 0;
@@ -142,7 +141,7 @@
         }
 
         .hero-content {
-            flex: 1.2; /* Lebih lebar untuk menyeimbangkan */
+            flex: 1.2;
             max-width: 650px;
         }
 
@@ -218,9 +217,9 @@
         }
 
         .hero-visual {
-            flex: 0.8; /* Kolom lebih sempit (mendorong ke kiri) */
+            flex: 0.8;
             display: flex;
-            justify-content: flex-start; /* Geser isi ke kiri */
+            justify-content: flex-start;
             position: relative;
             align-items: center;
             min-height: 400px;
@@ -229,7 +228,7 @@
         .hero-visual img {
             max-width: 100%;
             height: auto;
-            max-height: 400px; /* GAMBAR LEBIH KECIL (sebelumnya 500px) */
+            max-height: 400px;
             z-index: 10;
             position: relative;
             filter: drop-shadow(0 20px 40px rgba(62, 39, 35, 0.15));
@@ -352,7 +351,7 @@
             width: 350px;
             height: 350px;
             border-radius: 50%;
-            object-fit: cover; /* Menjaga bentuk asli (tidak gepeng) */
+            object-fit: cover;
             border: 5px solid white;
             animation: aliveAvatar 3s ease-in-out infinite;
             cursor: pointer;
@@ -378,27 +377,23 @@
             font-size: 2.4rem; 
             margin-bottom: 25px;
             color: var(--text-color);
-            text-align: left; /* Default */
+            text-align: left;
             line-height: 1.3;
         }
 
-        /* --- Class Khusus "Helloo!! I'm" --- */
         .greeting-gradient {
-            text-align: center !important; /* Posisi Tengah */
-            font-size: 1.2rem !important; /* Ukuran Kecil */
+            text-align: center !important;
+            font-size: 1.2rem !important;
             font-weight: 600;
             margin-bottom: 10px !important; 
             letter-spacing: 2px;
             text-transform: uppercase;
-            
-            /* Gradasi Pink ke Coklat */
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent !important;
         }
 
-        /* --- Class Baru: Nama Tengah --- */
         .name-centered {
             text-align: center !important;
         }
@@ -420,6 +415,118 @@
         .info-item h4 { color: var(--primary-color); margin-bottom: 8px; font-size: 1.1rem; letter-spacing: 0.5px; text-align: left; }
         .info-item p { font-size: 1rem; color: var(--text-muted); text-align: left; }
         
+        /* --- EDUCATION SECTION --- */
+        .education-container {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--bg-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 17px;
+            height: 17px;
+            background-color: var(--primary-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-date {
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-school {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Portfolio Showcase Tabs --- */
+        .portfolio-showcase-desc {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: -40px auto 40px;
+            font-size: 1.05rem;
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-tab {
+            padding: 12px 32px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            user-select: none;
+        }
+
+        .portfolio-tab.active {
+            background: var(--text-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(62, 39, 35, 0.2);
+        }
+
+        .portfolio-tab:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: tabFadeIn 0.5s ease forwards;
+        }
+
+        @keyframes tabFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* --- Tech Stack --- */
         .tech-grid {
             display: grid;
@@ -497,7 +604,7 @@
             display: none !important; 
         }
 
-        /* --- Portfolio --- */
+        /* --- Portfolio Cards --- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -542,7 +649,69 @@
         .card-title { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-color); font-weight: 600; text-align: left; }
         .card-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
 
-        /* --- Contact --- */
+        /* --- Contact Info Cards --- */
+        .contact-info-header {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: #1565C0;
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+        
+        .contact-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info-card {
+            background-color: #E3F2FD;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #BBDEFB;
+            transition: var(--transition);
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(21, 101, 192, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .contact-icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: #FFD54F;
+            color: #3E2723;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 15px auto;
+        }
+
+        .contact-info-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .contact-info-value {
+            font-family: var(--font-code);
+            font-size: 1.1rem;
+            color: var(--text-color);
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        /* --- Contact Form --- */
         .contact-container { display: flex; justify-content: center; }
 
         .contact-form {
@@ -564,10 +733,105 @@
 
         /* --- Footer --- */
         footer {
-            text-align: center; padding: 40px; background: #FDF6F0;
-            color: var(--text-muted); border-top: 1px solid rgba(212, 163, 115, 0.2);
+            text-align: center; 
+            padding: 50px 40px 35px; 
+            background: #FDF6F0;
+            color: var(--text-muted); 
+            border-top: 1px solid rgba(212, 163, 115, 0.2);
             position: relative;
             z-index: 10;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid rgba(212, 163, 115, 0.25);
+            color: var(--text-color);
+            font-size: 1.35rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            z-index: 0;
+        }
+
+        .social-link i {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Instagram */
+        .social-link.ig::before { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-link.ig:hover::before { transform: scale(1); }
+        .social-link.ig:hover { border-color: transparent; transform: translateY(-5px) rotate(-5deg); box-shadow: 0 10px 25px rgba(225, 48, 108, 0.35); }
+        .social-link.ig:hover i { color: #fff; transform: scale(1.15); }
+
+        /* TikTok */
+        .social-link.tt::before { background: #010101; }
+        .social-link.tt:hover::before { transform: scale(1); }
+        .social-link.tt:hover { border-color: transparent; transform: translateY(-5px) rotate(5deg); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+        .social-link.tt:hover i { color: #fff; transform: scale(1.15); }
+
+        /* LinkedIn */
+        .social-link.li::before { background: #0A66C2; }
+        .social-link.li:hover::before { transform: scale(1); }
+        .social-link.li:hover { border-color: transparent; transform: translateY(-5px) rotate(-3deg); box-shadow: 0 10px 25px rgba(10, 102, 194, 0.35); }
+        .social-link.li:hover i { color: #fff; transform: scale(1.15); }
+
+        /* Email */
+        .social-link.em::before { background: var(--primary-color); }
+        .social-link.em:hover::before { transform: scale(1); }
+        .social-link.em:hover { border-color: transparent; transform: translateY(-5px) rotate(3deg); box-shadow: 0 10px 25px rgba(255, 143, 171, 0.4); }
+        .social-link.em:hover i { color: #fff; transform: scale(1.15); }
+
+        /* WhatsApp */
+        .social-link.wa::before { background: #25D366; }
+        .social-link.wa:hover::before { transform: scale(1); }
+        .social-link.wa:hover { border-color: transparent; transform: translateY(-5px) rotate(-4deg); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35); }
+        .social-link.wa:hover i { color: #fff; transform: scale(1.15); }
+
+        .footer-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .footer-copyright {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .footer-tagline {
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
 
         sup {
@@ -586,6 +850,19 @@
             100% { transform: translate(-30px, -20px) scale(1.1); }
         }
 
+        /* Staggered entrance for social icons */
+        .social-link:nth-child(1) { animation: socialPop 0.5s 0.1s ease both; }
+        .social-link:nth-child(2) { animation: socialPop 0.5s 0.2s ease both; }
+        .social-link:nth-child(3) { animation: socialPop 0.5s 0.3s ease both; }
+        .social-link:nth-child(4) { animation: socialPop 0.5s 0.4s ease both; }
+        .social-link:nth-child(5) { animation: socialPop 0.5s 0.5s ease both; }
+
+        @keyframes socialPop {
+            0% { opacity: 0; transform: scale(0.3) translateY(20px); }
+            70% { transform: scale(1.1) translateY(-5px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
         @media (max-width: 768px) {
             header { padding: 20px; }
             .menu-toggle { display: block; }
@@ -600,12 +877,12 @@
             .hero-content { 
                 margin-top: 40px; 
                 text-align: center; 
-                flex: 1; /* Reset flex on mobile */
+                flex: 1;
                 max-width: 100%;
             }
             .hero-visual { 
-                flex: 1; /* Reset flex on mobile */
-                justify-content: center; /* Center image on mobile */
+                flex: 1;
+                justify-content: center;
             }
             .hero-title, .hero-subtitle, .typing-text { text-align: center; }
             .cta-buttons { justify-content: center; }
@@ -616,6 +893,10 @@
             .about-img img { width: 250px; height: 250px; }
             .reveal-left, .reveal-right { transform: translateY(50px); }
             .section-title { font-size: 2rem; }
+            .portfolio-tabs { gap: 10px; }
+            .portfolio-tab { padding: 10px 22px; font-size: 0.85rem; }
+            .footer-socials { gap: 14px; }
+            .social-link { width: 46px; height: 46px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -631,8 +912,7 @@
             <ul id="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#tech-stack">Tech Stack</a></li>
-                <li><a href="#certificates">Sertifikat</a></li>
+                <li><a href="#education">Pendidikan</a></li>
                 <li><a href="#portfolio">Portofolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -640,16 +920,13 @@
     </header>
 
     <section id="home" class="hero">
-        <!-- GAMBAR DIPINDAH KE KIRI, LEBIH KECIL & GESER KE KIRI -->
         <div class="hero-visual reveal-left">
             <div class="gear gear-large"></div>
             <div class="gear gear-medium"></div>
             <div class="gear gear-small"></div>
-
             <img src="https://z-cdn-media.chatglm.cn/files/47523f45-1300-4f2d-9871-5de5acd9124b.png?auth_key=1879424317-663ce522e3054749a7329872d6ce1452-0-ee143e31555562c10b811059f5bde3d2" alt="Tech Illustration Winni">
         </div>
 
-        <!-- TEKS DATA ANALYST DIPINDAH KE KANAN, LEBIH LEBAR -->
         <div class="hero-content reveal-right">
             <h3 class="hero-subtitle">Welcomeee!!, </h3>
             <h1 class="hero-title">Data <br><span>Analyst</span></h1>
@@ -673,10 +950,7 @@
                 <img src="https://i.imgur.com/YIjzCLF.png" alt="Foto Winni">
             </div>
             <div class="about-text reveal-right">
-                <!-- CLASS greeting-gradient (Tengah, Kecil, Gradasi) -->
                 <h3 class="greeting-gradient">Helloo!! I'm</h3>
-                
-                <!-- CLASS name-centered (NAMA JUGA TENGAH) -->
                 <h3 class="name-centered">Winni Nur Rahmawati</h3>
                 
                 <p>
@@ -705,197 +979,189 @@
         </div>
     </section>
 
-    <section id="tech-stack">
-        <h2 class="section-title reveal-up">Tech Stack <span class="line-decoration"></span></h2>
-        <div class="tech-grid">
- 
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-python tech-icon"></i>
-                <span class="tech-name">Python</span>
+    <section id="education">
+        <h2 class="section-title reveal-up">Pendidikan <span class="line-decoration"></span></h2>
+        <div class="education-container">
+            
+            <div class="timeline-item reveal-up">
+                <span class="timeline-date">2024 - Sekarang</span>
+                <h3 class="timeline-title">S1 Teknik Informatika</h3>
+                <div class="timeline-school">Budi Luhur University</div>
+                <p class="timeline-desc">Terlibat dalam kegiatan akademik dan organisasi FKBN untuk mengembangkan kemampuan dan menjadi bagian dalam riset dosen.</p>
             </div>
 
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-html5 tech-icon"></i>
-                <span class="tech-name">HTML</span>
+            <div class="timeline-item reveal-up">
+                <span class="timeline-date">2021 - 2023</span>
+                <h3 class="timeline-title">MIPA</h3>
+                <div class="timeline-school">SMA Berbudi Gantiwarno</div>
+                <p class="timeline-desc">Menjabat sebagai Sekretaris OSIS dan aktif dalam kegiatan organisasi sekolah.</p>
             </div>
 
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-css3-alt tech-icon"></i>
-                <span class="tech-name">CSS</span>
+            <div class="timeline-item reveal-up">
+                <span class="timeline-date">2018 - 2021</span>
+                <h3 class="timeline-title">Sekolah Menengah Pertama</h3>
+                <div class="timeline-school">SMP Negeri 1 Gantiwarno</div>
+                <p class="timeline-desc">Aktif dalam berbagai kegiatan sekolah untuk mengembangkan keterampilan dan pengalaman.</p>
             </div>
 
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-js tech-icon"></i>
-                <span class="tech-name">JavaScript</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-bootstrap tech-icon"></i>
-                <span class="tech-name">Bootstrap</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-php tech-icon"></i>
-                <span class="tech-name">PHP</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-solid fa-database tech-icon"></i>
-                <span class="tech-name">MySQL</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-github tech-icon"></i>
-                <span class="tech-name">GitHub</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-solid fa-laptop-code tech-icon"></i>
-                <span class="tech-name">VS Code</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-figma tech-icon"></i>
-                <span class="tech-name">Figma</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-solid fa-chart-line tech-icon"></i>
-                <span class="tech-name">RapidMiner</span>
-            </div>
-
-            <div class="tech-card reveal-up">
-                <i class="fa-brands fa-google tech-icon"></i>
-                <span class="tech-name">Google Colab</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="certificates">
-        <h2 class="section-title reveal-up">Sertifikasi <span class="line-decoration"></span></h2>
-        <div class="cert-image-grid">
-
-            <div class="cert-img-wrapper reveal-zoom">
-                <img src="https://i.imgur.com/c3tI0iJ.png" alt="Sertifikat 1">
-                <div class="cert-overlay"><span>Lihat Detail</span></div>
-            </div>
-
-            <div class="cert-img-wrapper reveal-zoom">
-                <img src="https://i.imgur.com/AxBjATo.png" alt="Sertifikat 2">
-                <div class="cert-overlay"><span>Lihat Detail</span></div>
-            </div>
-
-            <div class="cert-img-wrapper reveal-zoom">
-                <img src="https://i.imgur.com/FkVFX1r.png" alt="Sertifikat 3">
-                <div class="cert-overlay"><span>Lihat Detail</span></div>
-            </div>
-
-            <div class="cert-img-wrapper reveal-zoom">
-                <img src="https://i.imgur.com/aaYR4L3.png" alt="Sertifikat 4">
-                <div class="cert-overlay"><span>Lihat Detail</span></div>
-            </div>
-
-            <div class="cert-img-wrapper reveal-zoom">
-                <img src="https://i.imgur.com/OkoZFZD.png" alt="Sertifikat 5">
-                <div class="cert-overlay"><span>Lihat Detail</span></div>
-            </div>
-
-            <div class="cert-img-wrapper reveal-zoom">
-                <img src="https://i.imgur.com/ROd5zli.png" alt="Sertifikat 6">
-                <div class="cert-overlay"><span>Lihat Detail</span></div>
-            </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2 class="section-title reveal-up">Kegiatan <span class="line-decoration"></span></h2>
-        <div class="portfolio-grid">
+        <h2 class="section-title reveal-up">Portofolio <span class="line-decoration"></span></h2>
+        <div class="portfolio-tabs reveal-up">
+            <div class="portfolio-tab active" onclick="switchTab('kegiatan', this)">Kegiatan</div>
+            <div class="portfolio-tab" onclick="switchTab('sertifikasi', this)">Sertifikasi</div>
+            <div class="portfolio-tab" onclick="switchTab('techstack', this)">Tech Stack</div>
+        </div>
 
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/XavhQG3.png" alt="TV One Experience">
+        <!-- TAB: Kegiatan -->
+        <div id="tab-kegiatan" class="tab-content active">
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal-zoom">
+                    <div class="card-img">
+                        <img src="https://i.imgur.com/XavhQG3.png" alt="TV One Experience">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Pengalaman Kerja</span>
+                        <h3 class="card-title">Experience at TV One</h3>
+                        <p class="card-desc">Pengalaman profesional di stasiun televisi TV One bersama rekan FKBN.</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">Pengalaman Kerja</span>
-                    <h3 class="card-title">Experience at TV One</h3>
-                    <p class="card-desc">Pengalaman profesional di stasiun televisi TV One bersama rekan FKBN.</p>
+                <div class="portfolio-card reveal-zoom">
+                    <div class="card-img">
+                        <img src="https://i.imgur.com/V8xvhAb.jpeg" alt="Master of Ceremonies">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Soft Skill</span>
+                        <h3 class="card-title">Master of Ceremony</h3>
+                        <p class="card-desc">Dokumentasi saya sebagai Master of Ceremonies Seminar AI Safety in the Wild.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal-zoom">
+                    <div class="card-img">
+                        <img src="https://i.imgur.com/P1oaJLp.png" alt="AWBL Project">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Teknikal</span>
+                        <h3 class="card-title">AWBL Project TK Bhayangkari</h3>
+                        <p class="card-desc">Kegiatan aktivitas belajar interaktif anak menggunakan media edukasi.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal-zoom">
+                    <div class="card-img">
+                        <img src="https://i.imgur.com/lyvIzez.png" alt="ODK">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">ODK</span>
+                        <h3 class="card-title">One Day Kebudiluhuran</h3>
+                        <p class="card-desc">Kegiatan kebersamaan dan pengembangan karakter bersama mahasiswa Budi Luhur.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal-zoom">
+                    <div class="card-img">
+                        <img src="https://i.imgur.com/KsXIMDr.jpeg" alt="SOCIAL PROJECT">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">SOCIAL PROJECT</span>
+                        <h3 class="card-title">Berbagi Takjil</h3>
+                        <p class="card-desc">Kegiatan sosial berbagi takjil kepada masyarakat di bulan Ramadan.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal-zoom">
+                    <div class="card-img">
+                        <img src="https://i.imgur.com/4ubNTf4.png" alt="Seminar">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">Akademik</span>
+                        <h3 class="card-title">Project Analisis Sentimen</h3>
+                        <p class="card-desc">Mengolah dan menganalisis data teks untuk klasifikasi sentimen.</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/V8xvhAb.jpeg" alt="Master of Ceremonies">
+        <!-- TAB: Sertifikasi -->
+        <div id="tab-sertifikasi" class="tab-content">
+            <div class="cert-image-grid">
+                <div class="cert-img-wrapper reveal-zoom">
+                    <img src="https://i.imgur.com/c3tI0iJ.png" alt="Sertifikat 1">
+                    <div class="cert-overlay"><span>Lihat Detail</span></div>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">Soft Skill</span>
-                    <h3 class="card-title">Master of Ceremony</h3>
-                    <p class="card-desc">Dokumentasi saya sebagai Master of Ceremonies Seminar AI Safety in the Wild.</p>
+                <div class="cert-img-wrapper reveal-zoom">
+                    <img src="https://i.imgur.com/AxBjATo.png" alt="Sertifikat 2">
+                    <div class="cert-overlay"><span>Lihat Detail</span></div>
+                </div>
+                <div class="cert-img-wrapper reveal-zoom">
+                    <img src="https://i.imgur.com/FkVFX1r.png" alt="Sertifikat 3">
+                    <div class="cert-overlay"><span>Lihat Detail</span></div>
+                </div>
+                <div class="cert-img-wrapper reveal-zoom">
+                    <img src="https://i.imgur.com/aaYR4L3.png" alt="Sertifikat 4">
+                    <div class="cert-overlay"><span>Lihat Detail</span></div>
+                </div>
+                <div class="cert-img-wrapper reveal-zoom">
+                    <img src="https://i.imgur.com/OkoZFZD.png" alt="Sertifikat 5">
+                    <div class="cert-overlay"><span>Lihat Detail</span></div>
+                </div>
+                <div class="cert-img-wrapper reveal-zoom">
+                    <img src="https://i.imgur.com/ROd5zli.png" alt="Sertifikat 6">
+                    <div class="cert-overlay"><span>Lihat Detail</span></div>
                 </div>
             </div>
+        </div>
 
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/P1oaJLp.png" alt="AWBL Project">
+        <!-- TAB: Tech Stack -->
+        <div id="tab-techstack" class="tab-content">
+            <div class="tech-grid">
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-python tech-icon"></i>
+                    <span class="tech-name">Python</span>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">Teknikal</span>
-                    <h3 class="card-title">AWBL Project TK Bhayangkari</h3>
-                    <p class="card-desc">Kegiatan aktivitas belajar interaktif anak menggunakan media edukasi.</p>
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-html5 tech-icon"></i>
+                    <span class="tech-name">HTML</span>
                 </div>
-            </div>
-
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/lyvIzez.png" alt="ODK">
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-css3-alt tech-icon"></i>
+                    <span class="tech-name">CSS</span>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">ODK</span>
-                    <h3 class="card-title">One Day Kebudiluhuran</h3>
-                    <p class="card-desc">Kegiatan kebersamaan dan pengembangan karakter bersama mahasiswa Budi Luhur.</p>
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-js tech-icon"></i>
+                    <span class="tech-name">JavaScript</span>
                 </div>
-            </div>
-
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/KsXIMDr.jpeg" alt="SOCIAL PROJECT">
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-bootstrap tech-icon"></i>
+                    <span class="tech-name">Bootstrap</span>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">SOCIAL PROJECT</span>
-                    <h3 class="card-title">Berbagi Takjil</h3>
-                    <p class="card-desc">Kegiatan sosial berbagi takjil kepada masyarakat di bulan Ramadan.</p>
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-php tech-icon"></i>
+                    <span class="tech-name">PHP</span>
                 </div>
-            </div>
-
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/ts2JHSd.png" alt="Workshop">
+                <div class="tech-card reveal-up">
+                    <i class="fa-solid fa-database tech-icon"></i>
+                    <span class="tech-name">MySQL</span>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">Refreshing</span>
-                    <h3 class="card-title">Refreshing Timee</h3>
-                    <p class="card-desc">Solidarity Camp FKBN,sabi euy mampir curug kondang Bogor.</p>
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-github tech-icon"></i>
+                    <span class="tech-name">GitHub</span>
                 </div>
-            </div>
-            
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/YisjpVI.png" alt="Hackathon">
+                <div class="tech-card reveal-up">
+                    <i class="fa-solid fa-laptop-code tech-icon"></i>
+                    <span class="tech-name">VS Code</span>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">soft skill</span>
-                    <h3 class="card-title">MC Wisuda</h3>
-                    <p class="card-desc">Memandu dan mengelola jalannya acara wisuda.</p>
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-figma tech-icon"></i>
+                    <span class="tech-name">Figma</span>
                 </div>
-            </div>
-
-            <div class="portfolio-card reveal-zoom">
-                <div class="card-img">
-                    <img src="https://i.imgur.com/4ubNTf4.png" alt="Seminar">
+                <div class="tech-card reveal-up">
+                    <i class="fa-solid fa-chart-line tech-icon"></i>
+                    <span class="tech-name">RapidMiner</span>
                 </div>
-                <div class="card-content">
-                    <span class="card-tag">Akademik</span>
-                    <h3 class="card-title">Project Analisis Sentimen</h3>
-                    <p class="card-desc">Mengolah dan menganalisis data teks untuk klasifikasi sentimen.</p>
+                <div class="tech-card reveal-up">
+                    <i class="fa-brands fa-google tech-icon"></i>
+                    <span class="tech-name">Google Colab</span>
                 </div>
             </div>
         </div>
@@ -903,6 +1169,7 @@
 
     <section id="contact">
         <h2 class="section-title reveal-up">Contact Me <span class="line-decoration"></span></h2>
+    
         <div class="contact-container reveal-up">
             <form class="contact-form" onsubmit="handleContact(event)">
                 <div class="form-group">
@@ -923,15 +1190,36 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 wnninrr<sup>TM</sup>. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; margin-top: 5px;">Data Analyst & NLP Enthusiast</p>
+        <!-- Social Media Links -->
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/wnninrr" target="_blank" rel="noopener noreferrer" class="social-link ig" title="Instagram" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@wnninrr" target="_blank" rel="noopener noreferrer" class="social-link tt" title="TikTok" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/winni-nur-rahmawati-3a1b522b2/" target="_blank" rel="noopener noreferrer" class="social-link li" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="winninur918@email.com" class="social-link em" title="Email" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://wa.me/6281541039552" target="_blank" rel="noopener noreferrer" class="social-link wa" title="WhatsApp" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copyright">&copy; 2026 wnninrr<sup>TM</sup>. All Rights Reserved.</p>
+        <p class="footer-tagline">Data Analyst & NLP Enthusiast</p>
     </footer>
 
     <div id="toast" style="visibility: hidden; min-width: 250px; margin-left: -125px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 1001; left: 50%; bottom: 30px; font-size: 17px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"></div>
 
     <script>
         const textElement = document.getElementById('typewriter');
-        const phrases = ["Data Analyst", "NLP Enthusiast", "Mahasiswa Teknik Informatika"];
+        const phrases = ["Mahasiswa Teknik Informatika", "NLP Enthusiast","Data Analyst"];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -964,10 +1252,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             type();
 
-            // UPDATE SELECTOR ANIMATION HERO
-            // Karena layout ditukar (Gambar Kiri, Teks Kanan)
-            const heroLeftItems = document.querySelectorAll('.hero .reveal-left'); // Gambar
-            const heroRightItems = document.querySelectorAll('.hero .reveal-right'); // Teks
+            const heroLeftItems = document.querySelectorAll('.hero .reveal-left'); 
+            const heroRightItems = document.querySelectorAll('.hero .reveal-right'); 
 
             heroLeftItems.forEach((el, index) => {
                 setTimeout(() => {
@@ -992,6 +1278,7 @@
         applyStaggeredAnimation('.tech-card', 100);
         applyStaggeredAnimation('.cert-img-wrapper', 150);
         applyStaggeredAnimation('.portfolio-card', 100);
+        applyStaggeredAnimation('.timeline-item', 200);
 
         const observerOptions = {
             threshold: 0.1
@@ -1030,6 +1317,23 @@
             event.preventDefault();
             showToast("Terima kasih! Pesan Anda telah terkirim.");
             event.target.reset();
+        }
+
+        /* === TAB SWITCHING === */
+        function switchTab(tabName, clickedTab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.portfolio-tab').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById('tab-' + tabName).classList.add('active');
+            clickedTab.classList.add('active');
+
+            const activeContent = document.getElementById('tab-' + tabName);
+            const hiddenReveals = activeContent.querySelectorAll('.reveal-left, .reveal-right, .reveal-up, .reveal-zoom');
+            hiddenReveals.forEach(el => {
+                el.classList.remove('show');
+                void el.offsetWidth;
+                observer.observe(el);
+            });
         }
     </script>
 </body>
